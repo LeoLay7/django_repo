@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-8">
+        <div class="container">
+          <div class="card">
+
+            <div class="card-header">
+              <a href="{{ news_item.category.get_absolute_url }}" class="list-group-item list-group-item-action">{{ news_item.category }}</a>
+            </div>
+            <div class="media">
+            {% if news_item.photo%}
+                <img src="{{ news_item.photo.url }}" alt="фото нету" width="15%">
+            {% else %}
+                <strong>фотки нету</strong>
+            {% endif %}
+              </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ news_item.title }}</h5>
+              <p class="card-text">{{ news_item.content }}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+{% endblock %}
